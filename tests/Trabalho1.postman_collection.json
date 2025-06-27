@@ -1,0 +1,126 @@
+{
+	"info": {
+		"_postman_id": "d78061e5-925d-42db-8da1-899a8cda0061",
+		"name": "Trabalho1",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "46251453",
+		"_collection_link": "https://diogoruivo.postman.co/workspace/Diogo-Ruivo's-Workspace~f8a71365-fedf-4221-86cc-17abe5627587/collection/46251453-d78061e5-925d-42db-8da1-899a8cda0061?action=share&source=collection_link&creator=46251453"
+	},
+	"item": [
+		{
+			"name": "Listar Alunos",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3001/alunos",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"alunos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Criar aluno",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"nome\": \"Paulo\",\r\n  \"apelido\": \"Monteiro\",\r\n  \"curso\": \"Gestão\",\r\n  \"anoCurricular\": 1\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3001/alunos",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"alunos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Editar aluno ID",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"nome\": \"Joana\",\r\n  \"apelido\": \"Silva\",\r\n  \"curso\": \"Engenharia Informática\",\r\n  \"anoCurricular\": 3\r\n}\r\n\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3001/alunos/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"alunos",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Apagar aluno com ID",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3001/alunos/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"alunos",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Listar Cursos",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3001/cursos",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"cursos"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

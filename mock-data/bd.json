@@ -1,82 +1,103 @@
 {
   "alunos": [
     {
-      "id": 1,
+      "id": "1",
       "nome": "Joana",
       "apelido": "Silva",
       "curso": "Engenharia Informática",
-      "anoCurricular": 2
+      "anoCurricular": 3
     },
     {
-      "id": 2,
+      "id": "2",
       "nome": "Carlos",
       "apelido": "Pereira",
       "curso": "Design Multimédia",
       "anoCurricular": 1
     },
     {
-      "id": 3,
+      "id": "3",
       "nome": "Inês",
       "apelido": "Ferreira",
       "curso": "Gestão",
       "anoCurricular": 3
     },
     {
-      "id": 4,
+      "id": "4",
       "nome": "Miguel",
       "apelido": "Santos",
       "curso": "Enfermagem",
       "anoCurricular": 2
     },
     {
-      "id": 5,
+      "id": "5",
       "nome": "Beatriz",
       "apelido": "Rocha",
       "curso": "Engenharia Informática",
       "anoCurricular": 1
     },
     {
-      "id": 6,
+      "id": "6",
       "nome": "Tiago",
       "apelido": "Martins",
       "curso": "Turismo",
       "anoCurricular": 2
     },
     {
-      "id": 7,
+      "id": "7",
       "nome": "Rita",
       "apelido": "Costa",
       "curso": "Design Multimédia",
       "anoCurricular": 3
     },
     {
-      "id": 8,
+      "id": "8",
       "nome": "André",
       "apelido": "Gomes",
       "curso": "Enfermagem",
       "anoCurricular": 1
     },
     {
-      "id": 9,
+      "id": "9",
       "nome": "Marta",
       "apelido": "Almeida",
       "curso": "Turismo",
       "anoCurricular": 3
     },
     {
-      "id": 10,
+      "id": "10",
       "nome": "João",
       "apelido": "Neves",
       "curso": "Gestão",
       "anoCurricular": 2
+    },
+    {
+      "id": "11",
+      "nome": "Paulo",
+      "apelido": "Monteiro",
+      "curso": "Gestão",
+      "anoCurricular": 1
     }
   ],
   "cursos": [
-    { "id": 1, "nomeDoCurso": "Engenharia Informática" },
-    { "id": 2, "nomeDoCurso": "Design Multimédia" },
-    { "id": 3, "nomeDoCurso": "Gestão" },
-    { "id": 4, "nomeDoCurso": "Enfermagem" },
-    { "id": 5, "nomeDoCurso": "Turismo" }
+    {
+      "id": "1",
+      "nomeDoCurso": "Engenharia Informática"
+    },
+    {
+      "id": "2",
+      "nomeDoCurso": "Design Multimédia"
+    },
+    {
+      "id": "3",
+      "nomeDoCurso": "Gestão"
+    },
+    {
+      "id": "4",
+      "nomeDoCurso": "Enfermagem"
+    },
+    {
+      "id": "5",
+      "nomeDoCurso": "Turismo"
+    }
   ]
 }
-
