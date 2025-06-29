@@ -1,21 +1,21 @@
 {
   "alunos": [
     {
-      "id":1,
+      "id": 1,
       "nome": "Joana",
       "apelido": "Silva",
       "curso": "Engenharia Informática",
       "anoCurricular": 2
     },
     {
-      "id":2,
+      "id": 2,
       "nome": "Carlos",
       "apelido": "Pereira",
       "curso": "Design Multimédia",
       "anoCurricular": 1
     },
     {
-      "id":3,
+      "id": 3,
       "nome": "Inês",
       "apelido": "Ferreira",
       "curso": "Gestão",
@@ -72,10 +72,25 @@
     }
   ],
   "cursos": [
-    { "id": 1, "nomeDoCurso": "Engenharia Informática" },
-    { "id": 2, "nomeDoCurso": "Design Multimédia" },
-    { "id": 3, "nomeDoCurso": "Gestão" },
-    { "id": 4, "nomeDoCurso": "Enfermagem" },
-    { "id": 5, "nomeDoCurso": "Turismo" }
+    {
+      "id": 1,
+      "nomeDoCurso": "Engenharia Informática"
+    },
+    {
+      "id": 2,
+      "nomeDoCurso": "Design Multimédia"
+    },
+    {
+      "id": 3,
+      "nomeDoCurso": "Gestão"
+    },
+    {
+      "id": 4,
+      "nomeDoCurso": "Enfermagem"
+    },
+    {
+      "id": 5,
+      "nomeDoCurso": "Turismo"
+    }
   ]
 }
