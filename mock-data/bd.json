@@ -22,11 +22,11 @@
       "anoCurricular": 3
     },
     {
-      "id": "4",
       "nome": "Miguel",
       "apelido": "Santos",
       "curso": "Enfermagem",
-      "anoCurricular": 2
+      "anoCurricular": 2,
+      "id": "4"
     },
     {
       "id": "5",

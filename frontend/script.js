@@ -1,4 +1,4 @@
-const API = 'http://localhost:3001/alunos';   
+const API = 'http://localhost:3002/alunos';   
 
 const ul   = document.getElementById('lista-alunos');
 const form = document.getElementById('form-adicionar');
