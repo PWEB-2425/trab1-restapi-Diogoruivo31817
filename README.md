@@ -1,153 +1,147 @@
-# Trabalho Prático #1
+Trabalho Prático #1 – Consumo e Implementação de APIs RESTful
 
-## Consumo e Implementação de APIs RESTful
+AutorDiogo Ruivo (n.º 31817)
 
-### Objetivo Geral
+📌 Publicação
 
-Consolidar os conhecimentos em desenvolvimento web com foco na criação, consumo e implementação de APIs RESTful utilizando tecnologias do ecossistema JavaScript:
+Front-end (Vercel)-https://trab1-restapi-diogoruivo31817-git-dev-diogoruivo31817s-projects.vercel.app/
 
-- Node.js + Express
-- MongoDB / MongoDB Atlas
-- JSON-Server
-- Fetch API
-- Swagger (opcional)
+Back-end (Local)http://localhost:3002
 
-O projeto simula o ciclo completo de desenvolvimento de uma aplicação web com front-end e back-end separados, incluindo testes e deploy.
+🚀 Como instalar e correr
 
----
+Clonar repositório
 
-## Partes do Trabalho
+git clone https://github.com/PWEB-2425/trab1-restapi-Diogoruivo31817.git
+cd trab1-restapi-diogoruivo31817
 
-### Parte 1: Estruturação da Base de Dados (JSON)
+Configurar e arrancar o Back-end
 
-- Criar um ficheiro `bd.json` com:
+cd backend
+npm install
 
-  - Lista de alunos: `nome`, `apelido`, `curso`, `anoCurricular`
-  - Lista de cursos: `nomeDoCurso`
+Crie um ficheiro .env em backend/ com:
 
-- 📁 Diretório sugerido: `/mock-data/`
-- 📄 Entregável: `bd.json`
+PORT=3002
+MONGODB_URI=<a sua connection string do Atlas>
 
----
+Povoar a base de dados em Atlas:
 
-### Parte 2: API Simulada com JSON-Server + Testes
+node seed.js
 
-- Configurar e iniciar `json-server` com `bd.json`
-- Testar os endpoints com Postman (CRUD de alunos, leitura de cursos)
-- Exportar a coleção de testes
+Arrancar o servidor:
 
-- 📁 Diretório sugerido: `/mock-server/`
-- 📄 Entregáveis:
-  - Código de configuração (`package.json`, script json-server)
-  - Coleção `.json` do Postman em `/tests/`
+node server.js
 
----
+A API estará disponível em http://localhost:3002
 
-### Parte 3: Interface Web (CRUD de Alunos)
+Correr o Front-end
 
-- Desenvolver uma página web funcional para gerir alunos:
-  - Ver alunos
-  - Adicionar aluno
-  - Editar aluno
-  - Apagar aluno
-- Utilizar `Fetch API` e programação assíncrona
+cd ../frontend
+# não há dependências npm; apenas abra index.html ou use:
+live-server .
 
-- 📁 Diretório sugerido: `/frontend/`
-- 📄 Entregável: Página funcional conectada à API simulada
+A interface usa Fetch para comunicar com http://localhost:3002/alunos e …/cursos
 
----
+🗄️ Estrutura da Base de Dados
 
-### Parte 4: API RESTful real (Node.js + Express + MongoDB Atlas)
+Ficheiro origem: mock-data/bd.json
 
-- Migrar os dados para o MongoDB Atlas
-- Implementar a API Express com endpoints equivalentes ao JSON-server
-- Manter a estrutura RESTful
-- Sugestão : usar mongoose a abordagem MVC (bónus 5%)
+Coleções iniciais:
 
-- 📁 Diretório sugerido: `/backend/`
-- 📄 Entregável: Código funcional da API com instruções
+alunos (10 registos)Cada aluno tem campos:
 
----
+{
+  "id": 1,
+  "nome": "Joana",
+  "apelido": "Silva",
+  "curso": "Engenharia Informática",
+  "anoCurricular": 2
+}
 
-### Parte 5: Deploy da Aplicação
+cursos (5 registos)Cada curso tem campos:
 
-- Fazer deploy do front-end no [Vercel](https://vercel.com)
-- (Opcional) Fazer deploy da API no [Render](https://render.com)
-- Adaptar o front-end para consumir a nova API
+{
+  "id": 1,
+  "nomeDoCurso": "Engenharia Informática"
+}
 
-📄 Incluir no `README.md`:
+O script backend/seed.js lê este JSON, limpa as coleções em Atlas e insere os documentos (convertendo id em _id nativo).
 
-- URL pública do front-end
-- URL da API real
-- 📄 Entregável: Links funcionais no repositório
+🔗 API RESTful (Express + MongoDB)
 
----
+Base URL: http://localhost:3002
 
-### Parte 6 (Bonificação): Documentação da API
+Alunos-http://localhost:3002/alunos
 
-- Utilizar Swagger para documentar os endpoints da API
-- Incluir rota `/api-docs` na aplicação
+GET /alunos – Listar todos os alunos
 
-- 📁 Diretório sugerido: `/backend/docs/`
-- 📄 Entregável: Swagger funcional e acessível
+GET /alunos/:id – Obter um aluno por _id
 
----
+POST /alunos – Criar um novo aluno
 
-## Organização do Projeto
+PUT /alunos/:id – Atualizar um aluno
 
-```text
-projeto-raiz/
-│
-├── /frontend/ ← Interface web (HTML/CSS/JS)
-├── /backend/ ← API RESTful com Node.js + MongoDB
-├── /mock-server/ ← JSON-server configurado
-├── /mock-data/ ← Base de dados JSON original
-├── /tests/ ← Coleção de testes Postman
-├── README.md ← Instruções, links e notas
-└── .gitignore, etc.
-```
+DELETE /alunos/:id – Apagar um aluno
 
----
+Cursos-http://localhost:3002/alunos
 
-## Sugestão de Branches
+GET /cursos – Listar todos os cursos
 
-| Branch     | Descrição                        |
-| ---------- | -------------------------------- |
-| `main`     | Versão estável e final           |
-| `dev`      | Desenvolvimento geral            |
-| `frontend` | Interface e interação do usuário |
-| `api`      | API real (Node + MongoDB)        |
-| `deploy`   | Adaptações para Vercel/Render    |
+POST /cursos – Criar um novo curso
 
----
+PUT /cursos/:id – Atualizar um curso
 
-## Critérios de Avaliação
+DELETE /cursos/:id – Apagar um curso
 
-| Critério                         | Peso |
-| -------------------------------- | ---- |
-| Base de dados JSON correta       | 10%  |
-| API simulada e testada (Postman) | 10%  |
-| Funcionalidade do front-end      | 30%  |
-| Qualidade da API real (Node.js)  | 30%  |
-| Integração front-end/backend     | 10%  |
-| Deploy funcional                 | 10%  |
-| Bonificação (MVC)                | +5%  |
-| Bonificação (Swagger)            | +5%  |
+🖥️ Front-end
 
----
+Tecnologias: HTML5, CSS3, Bootstrap 5, JavaScript (ESModules), Fetch API
 
-## Entrega
+Funcionalidades:
 
-- Entrega via **GitHub Classroom**.
-- O repositório deve conter:
-  - Código funcional
-  - README.md com instruções claras
-  - Links de deploy (front e opcionalmente back)
+Ver: carrega e lista alunos ordenados.
 
----
+Adicionar: formulário → POST /alunos.
 
-### Repositório Base
+Editar: prompt com dados atuais → PUT /alunos/:_id.
 
-Usa o repositório template inicial fornecido no GitHub Classroom.
-# TWT1RESTAPI
-# TRAB1_TEMPLATE
+Apagar: confirma → DELETE /alunos/:_id.
+
+⚙️ Back-end
+
+Node.js + Express
+
+Mongoose para modelos e ligação a MongoDB Atlas
+
+Middlewares:
+
+cors()
+
+express.json()
+
+app.set('json spaces', 2) (para indentação JSON)
+
+✅ Critérios cumpridos
+
+Base JSON correta (10%)
+
+API simulada e testada (10%)
+
+Funcionalidade front-end (30%)
+
+API real Node.js + MongoDB Atlas (30%)
+
+Integração front/back local (10%)
+
+Deploy funcional do front-end (Vercel) (10%)
+
+Total obrigatório: 100%
+
+📚 Links
+
+GitHub: https://github.com/PWEB-2425/trab1-restapi-Diogoruivo31817/tree/dev
+
+Front-end Prod: https://trab1-restapi-diogoruivo31817-git-dev-diogoruivo31817s-projects.vercel.app/
+
+Back-end Local: http://localhost:3002
