@@ -3,16 +3,18 @@ const API = 'http://localhost:3002/alunos';
 const ul   = document.getElementById('lista-alunos');
 const form = document.getElementById('form-adicionar');
 
-
 async function listar() {
   const alunos = await fetch(API).then(r => r.json());
 
   ul.replaceChildren();
-  alunos.sort((a, b) => +a.id - +b.id);     
+  // Se quiseres sort numérico e tiveste um campo 'id' no seed: alunos.sort((a,b)=>a.id-b.id);
+  // Mas com Mongo usamos _id:
+  alunos.sort((a, b) => a._id.localeCompare(b._id));
 
   alunos.forEach((a, idx) => {
     ul.insertAdjacentHTML('beforeend', `
-      <li class="list-group-item d-flex justify-content-between" data-id="${a.id}">
+      <li class="list-group-item d-flex justify-content-between align-items-center"
+          data-id="${a._id}">
         <span><strong>Aluno ${idx + 1}</strong> – ${a.nome} ${a.apelido}
               • ${a.curso} (${a.anoCurricular})</span>
         <div class="btn-group btn-group-sm">
@@ -24,7 +26,6 @@ async function listar() {
   });
 }
 
-
 form.addEventListener('submit', async e => {
   e.preventDefault();
 
@@ -33,7 +34,6 @@ form.addEventListener('submit', async e => {
     apelido:       form.apelido.value.trim(),
     curso:         form.curso.value.trim(),
     anoCurricular: +form.ano.value
-    
   };
 
   const res = await fetch(API, {
@@ -47,16 +47,14 @@ form.addEventListener('submit', async e => {
   listar();
 });
 
-
 ul.addEventListener('click', async e => {
   const btn = e.target.closest('button');
   if (!btn) return;
 
   const li   = btn.closest('li[data-id]');
-  const id   = li.dataset.id;                               
+  const id   = li.dataset.id;                                // agora é _id
   const url  = `${API}/${encodeURIComponent(id)}`;
   const acao = btn.dataset.acao;
-
 
   if (acao === 'apagar') {
     if (!confirm('Apagar este aluno?')) return;
@@ -65,7 +63,6 @@ ul.addEventListener('click', async e => {
     return;
   }
 
- 
   if (acao === 'editar') {
     const dados = await fetch(url).then(r => r.json());
 
@@ -77,7 +74,6 @@ ul.addEventListener('click', async e => {
     if ([nome, ape, cur, ano].some(v => v === null)) return;
 
     const corpo = {
-      
       nome:          nome.trim() || dados.nome,
       apelido:       ape.trim()  || dados.apelido,
       curso:         cur.trim()  || dados.curso,
@@ -95,7 +91,7 @@ ul.addEventListener('click', async e => {
   }
 });
 
-
 listar();
+
 
 
