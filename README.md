@@ -6,7 +6,10 @@ AutorDiogo Ruivo (n.º 31817)
 
 Front-end (Vercel)-https://trab1-restapi-diogoruivo31817-git-dev-diogoruivo31817s-projects.vercel.app/
 
-Back-end (Local)http://localhost:3002
+Back-end (Render)-https://trab1-restapi-diogoruivo31817.onrender.com
+
+alunos-trab1-restapi-diogoruivo31817.onrender.com/alunos
+cursos-trab1-restapi-diogoruivo31817.onrender.com/cursos
 
 🚀 Como instalar e correr
 
@@ -144,4 +147,5 @@ GitHub: https://github.com/PWEB-2425/trab1-restapi-Diogoruivo31817/tree/dev
 
 Front-end Prod: https://trab1-restapi-diogoruivo31817-git-dev-diogoruivo31817s-projects.vercel.app/
 
-Back-end Local: http://localhost:3002
+Back-end Local: trab1-restapi-diogoruivo31817.onrender.com/alunos
+                trab1-restapi-diogoruivo31817.onrender.com/cursos
