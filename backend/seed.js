@@ -3,10 +3,10 @@ import 'dotenv/config';
 import mongoose from 'mongoose';
 import fs from 'fs';
 
-// ① Debug: mostrar URI
+
 console.log('DEBUG: MONGODB_URI =', process.env.MONGODB_URI);
 
-// ② Montar caminho para bd.json
+
 const caminho = new URL('../mock-data/bd.json', import.meta.url);
 console.log('DEBUG: caminho para bd.json =', caminho.href);
 
@@ -26,7 +26,7 @@ async function seed() {
   await mongoose.connect(process.env.MONGODB_URI);
   console.log('✅ Ligado ao MongoDB');
 
-  // Usamos schema livre para aceitar a estrutura do JSON
+  
   const Aluno = mongoose.model('Aluno', new mongoose.Schema({}, { strict: false }));
   const Curso = mongoose.model('Curso', new mongoose.Schema({}, { strict: false }));
 

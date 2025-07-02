@@ -1,6 +1,5 @@
 // script.js
 
-// endpoints da API
 const API_ALUNOS  = 'https://trab1-restapi-diogoruivo31817.onrender.com/alunos';
 const API_CURSOS  = 'https://trab1-restapi-diogoruivo31817.onrender.com/cursos';
 
@@ -8,16 +7,14 @@ const ul            = document.getElementById('lista-alunos');
 const form          = document.getElementById('form-adicionar');
 const selectCurso   = document.getElementById('curso');
 
-/**
- * Carrega os cursos da API e preenche o <select id="curso">
- */
+
 async function carregarCursos() {
   try {
     const cursos = await fetch(API_CURSOS).then(r => r.json());
-    // placeholder
+    
     selectCurso.innerHTML = `<option value="">Escolhe um curso…</option>`;
     cursos.forEach(c => {
-      // atenção: no JSON-server era nomeDoCurso, no Mongoose usamos nome
+      
       const nome = c.nomeDoCurso ?? c.nome;
       const opt  = document.createElement('option');
       opt.value  = nome;
@@ -30,20 +27,19 @@ async function carregarCursos() {
   }
 }
 
-/**
- * Lista todos os alunos na UL e actualiza o DOM
- */
+
+ 
 async function listar() {
-  // busca alunos
+  
   const alunos = await fetch(API_ALUNOS).then(r => r.json());
 
-  // limpa lista
+  
   ul.replaceChildren();
 
-  // ordena (por _id lexicográfico)
+  
   alunos.sort((a, b) => a._id.localeCompare(b._id));
 
-  // cria cada LI
+  
   alunos.forEach((a, idx) => {
     ul.insertAdjacentHTML('beforeend', `
       <li class="list-group-item d-flex justify-content-between align-items-center"
@@ -59,7 +55,7 @@ async function listar() {
   });
 }
 
-// trata o envio do formulário (POST)
+
 form.addEventListener('submit', async e => {
   e.preventDefault();
 
@@ -84,7 +80,7 @@ form.addEventListener('submit', async e => {
   listar();
 });
 
-// trata clicks nos botões Editar / Apagar
+
 ul.addEventListener('click', async e => {
   const btn = e.target.closest('button');
   if (!btn) return;
@@ -94,7 +90,7 @@ ul.addEventListener('click', async e => {
   const url  = `${API_ALUNOS}/${encodeURIComponent(id)}`;
   const acao = btn.dataset.acao;
 
-  // apagar
+  
   if (acao === 'apagar') {
     if (!confirm('Apagar este aluno?')) return;
     await fetch(url, { method: 'DELETE' });
@@ -102,7 +98,7 @@ ul.addEventListener('click', async e => {
     return;
   }
 
-  // editar
+  
   if (acao === 'editar') {
     const dados = await fetch(url).then(r => r.json());
 
@@ -135,7 +131,7 @@ ul.addEventListener('click', async e => {
   }
 });
 
-// inicialização: carrega cursos e lista alunos
+
 (async () => {
   await carregarCursos();
   await listar();
