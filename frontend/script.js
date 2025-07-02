@@ -1,4 +1,5 @@
-const API = 'http://localhost:3002/alunos';   
+const API = 'https://trab1-restapi-diogoruivo31817.onrender.com/alunos';   
+const API_CURSOS = 'https://trab1-restapi-diogoruivo31817.onrender.com/cursos';
 
 const ul   = document.getElementById('lista-alunos');
 const form = document.getElementById('form-adicionar');
